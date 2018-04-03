@@ -1,11 +1,11 @@
-FROM docker.elastic.co/kibana/kibana:6.2.2
+FROM docker.elastic.co/kibana/kibana:6.2.3
 
 USER root
 
 RUN yum update -y && \
     yum install -y epel-release && \
     yum install -y dpkg && \
-    /usr/share/kibana/bin/kibana-plugin install https://oss.sonatype.org/content/repositories/releases/com/floragunn/search-guard-kibana-plugin/6.2.2-10/search-guard-kibana-plugin-6.2.2-10.zip && \
+    /usr/share/kibana/bin/kibana-plugin install https://oss.sonatype.org/content/repositories/releases/com/floragunn/search-guard-kibana-plugin/6.2.3-11/search-guard-kibana-plugin-6.2.3-11.zip && \
     chown -R kibana:kibana /usr/share/kibana/config /usr/share/kibana/plugins/searchguard /usr/share/kibana/optimize/bundles && \
     # install gosu
     dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" && \
